@@ -10,6 +10,7 @@ import info5100.assignment4.model.Encounter;
 import info5100.assignment4.model.Person;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -143,7 +144,14 @@ public class ViewEncounterJPanel extends javax.swing.JPanel {
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
-        
+        int row = EncounterTable.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Encounter e = (Encounter)EncounterTable.getValueAt(row, 0);
+        p.deleteEncounter(e);
+        refreshEncounterTable();
     }//GEN-LAST:event_DeleteActionPerformed
 
 

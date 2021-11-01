@@ -8,6 +8,7 @@ package UI.admin;
 import info5100.assignment4.model.Encounter;
 import info5100.assignment4.model.Person;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -70,7 +71,13 @@ public class AddViewEncounter extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Time slot");
+        txtTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimeKeyReleased(evt);
+            }
+        });
+
+        jLabel4.setText("Time slot：(eg.2021-10-30 21:00)");
 
         jLabel1.setText("Encounter name:");
 
@@ -93,24 +100,24 @@ public class AddViewEncounter extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(181, 181, 181)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                 .addGap(256, 256, 256))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282)
+                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(324, 324, 324))
             .addGroup(layout.createSequentialGroup()
                 .addGap(278, 278, 278)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTime)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtName)
                     .addComponent(txtVital)
-                    .addComponent(txtName))
-                .addGap(251, 251, 251))
+                    .addComponent(txtTime))
+                .addGap(150, 150, 150))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,6 +175,16 @@ public class AddViewEncounter extends javax.swing.JPanel {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimeKeyReleased
+        // TODO add your handling code here:
+        String TS = txtTime.getText();
+        if(TS.matches("^(19|20|21)\\d{2}-(?:0?[1-9]|1[0-2])-\\d{1,2} \\d{2}:00$")){
+            txtTime.setBackground(Color.GREEN);
+        }else{
+            txtTime.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtTimeKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

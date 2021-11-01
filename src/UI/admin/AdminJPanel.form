@@ -17,12 +17,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="AddPatientButton" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                      <Component id="deletePatient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="ViewEncounter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -37,11 +37,11 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" pref="607" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" pref="625" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane3" pref="605" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="623" max="32767" attributes="0"/>
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -72,7 +72,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="AddPatientButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="deletePatient" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="ViewEncounter" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
@@ -202,12 +202,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewPersonDetailButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="deletePatient">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePatientActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="AddPatientButton">

@@ -8,6 +8,7 @@ package UI.admin;
 import info5100.assignment4.model.Encounter;
 import info5100.assignment4.model.Person;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -82,6 +83,12 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimeKeyReleased(evt);
+            }
+        });
+
         jLabel4.setText("Time slot");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -95,8 +102,8 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                 .addGap(256, 256, 256))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(326, 326, 326)
+                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(324, 324, 324))
             .addGroup(layout.createSequentialGroup()
                 .addGap(278, 278, 278)
@@ -154,10 +161,13 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
             timeSlot = txtTime.getText();
             vitalSign = txtVital.getText();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Please check Name, age, bloodPressure and residence ", "Info", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please check Name, Time slot，and Vital Sign ", "Info", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
+        if(txtTime.getBackground().equals(Color.RED)){
+            JOptionPane.showMessageDialog(this, "Please check  Time slot", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         p.getEncounterHistory().add(new Encounter(name,vitalSign,timeSlot));
         
         JOptionPane.showMessageDialog(this, "Encounter  added!", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -167,6 +177,16 @@ public class AddEncounterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
+ 
+    private void txtTimeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimeKeyReleased
+        // TODO add your handling code here:
+        String TS = txtTime.getText();
+        if(TS.matches("^(19|20|21)\\d{2}-(?:0?[1-9]|1[0-2])-\\d{1,2} \\d{2}:00$")){
+            txtTime.setBackground(Color.GREEN);
+        }else{
+            txtTime.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtTimeKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

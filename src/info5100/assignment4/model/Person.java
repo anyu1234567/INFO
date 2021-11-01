@@ -105,6 +105,11 @@ public class Person {
         this.encounterHistory = encounterHistory;
     }
 
+    public void deleteEncounter(Encounter e) {
+       if(e!=null)
+            encounterHistory.remove(e);
+    }
+
  
     
 }

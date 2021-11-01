@@ -39,11 +39,15 @@ public class Admin {
     }
 
     public void addPatient(Person p) {
-        if(p!=null)
-            patientDirectory.add(p);
+        this.patientDirectory.add(p);
     }
     public boolean isPatient(Person p){
         return patientDirectory.contains(p);
+    }
+    
+    public void deletPatient(Person p){
+        if(p!=null)
+            patientDirectory.remove(p);
     }
     
 }
